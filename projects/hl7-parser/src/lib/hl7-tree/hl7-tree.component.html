@@ -1,0 +1,20 @@
+<div class="tree-container" *ngIf="tree">
+  <ng-container *ngTemplateOutlet="nodeTemplate; context: { node: tree }"></ng-container>
+</div>
+
+<ng-template #nodeTemplate let-node="node">
+  <div *ngIf="node" class="node" [style.padding-left.px]="node.level * 20">
+    <button *ngIf="node.children.length > 0" (click)="toggleNode(node)" class="toggle-button">
+      {{ node.expanded ? '-' : '+' }}
+    </button>
+    <span class="label" 
+          [class.selected]="node.selected" 
+          [class.empty-leaf]="isNodeEmpty(node)"
+          (click)="selectNode(node, $event)">{{ node.label }}</span>
+  </div>
+  <div *ngIf="node.expanded">
+    <ng-container *ngFor="let child of node.children">
+      <ng-container *ngTemplateOutlet="nodeTemplate; context: { node: child }"></ng-container>
+    </ng-container>
+  </div>
+</ng-template>

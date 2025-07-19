@@ -1,0 +1,75 @@
+<div class="description-container">
+  <div class="tabs">
+    <button class="tab-button" [class.active]="activeTab === 'detail'" (click)="activeTab = 'detail'">Selection Detail</button>
+    <button class="tab-button" [class.active]="activeTab === 'objects'" (click)="activeTab = 'objects'">Message Objects</button>
+  </div>
+
+  <div *ngIf="activeTab === 'detail'" class="tab-content">
+    <div *ngIf="selection">
+      <h4>Segment: {{ selection.segment.name }}</h4>
+      <p>{{ segmentDescription }}</p>
+
+      <div *ngIf="selection.field && fieldDescription">
+        <h5>Field: {{ fieldDescription.desc }} ({{selection.segment.name}}-{{selection.fieldIndex}})</h5>
+        
+        <div *ngFor="let repetition of selection.field.repetitions; let i = index"
+             class="repetition-group"
+             [class.selected]="selection.repetitionIndex === i && selection.componentIndex === undefined">
+          <h6 *ngIf="selection.field.repetitions.length > 1">Repetition {{ i + 1 }}</h6>
+          <ul>
+            <li *ngFor="let component of repetition.components; let j = index"
+                class="component-item"
+                [class.selected]="selection.componentIndex === j && selection.repetitionIndex === i && selection.subComponentIndex === undefined">
+              <strong>{{ getComponentDescription(j)?.desc || 'Component ' + (j + 1) }}:</strong>
+              
+              <ng-container *ngIf="component.subComponents.length > 1; else singleSubComponent">
+                <ul class="sub-component-list">
+                  <li *ngFor="let sub of component.subComponents; let k = index"
+                      [class.selected]="selection.subComponentIndex === k && selection.componentIndex === j && selection.repetitionIndex === i">
+                    <strong>{{ getSubComponentDescription(j, k)?.desc }}:</strong> {{ formatValue(sub.original) }}
+                  </li>
+                </ul>
+              </ng-container>
+              <ng-template #singleSubComponent>
+                <span [class.selected]="selection.subComponentIndex === 0 && selection.componentIndex === j && selection.repetitionIndex === i">
+                  {{ formatValue(component.original) }}
+                </span>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="activeTab === 'objects'" class="tab-content">
+    <div *ngFor="let obj of mappedObjects" class="mapped-object">
+      <h4>{{ obj.name }}</h4>
+      <ul>
+        <li *ngFor="let item of obj.data">
+          <strong>{{ item.key }}:</strong>
+          <ng-container *ngIf="isObject(item.value) && !isArray(item.value)">
+            <ul class="nested-list">
+              <li *ngFor="let subItem of asObject(item.value) | keyvalue">
+                <strong>{{ subItem.key }}:</strong> {{ formatValue(subItem.value) }}
+              </li>
+            </ul>
+          </ng-container>
+          <ng-container *ngIf="isArray(item.value)">
+            <div *ngFor="let rep of item.value; let i = index" class="repetition-group">
+              <h6 *ngIf="item.value.length > 1">Repetition {{ i + 1 }}</h6>
+              <ul class="nested-list">
+                <li *ngFor="let subItem of asObject(rep) | keyvalue">
+                  <strong>{{ subItem.key }}:</strong> {{ formatValue(subItem.value) }}
+                </li>
+              </ul>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!isObject(item.value)">
+            {{ formatValue(item.value) }}
+          </ng-container>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

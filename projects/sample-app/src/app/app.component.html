@@ -1,0 +1,40 @@
+<div class="header-container">
+  <h1>HL7 Viewer</h1>
+  <div class="main-actions">
+    <button (click)="showEditor()">Load New Message</button>
+    <button (click)="saveMessage()">Save Current Message</button>
+    <select (change)="loadMessage($event)">
+      <option value="" disabled selected>Load Saved Message</option>
+      <option *ngFor="let msg of savedMessages" [value]="msg.content">{{ msg.name }}</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="isEditing" class="editor-container">
+  <textarea [(ngModel)]="editableMessage"></textarea>
+  <div class="editor-actions">
+    <button (click)="updateMessage()">Update and Save</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>
+
+<div *ngIf="parsingErrors.length > 0" class="error-container">
+  <h4>Parsing Errors</h4>
+  <ul>
+    <li *ngFor="let error of parsingErrors">{{ error }}</li>
+  </ul>
+</div>
+
+<div class="main-content">
+  <div class="parser-view">
+    <lib-hl7-parser
+      [messageStr]="hl7Message">
+    </lib-hl7-parser>
+  </div>
+  <div class="description-view">
+    <lib-hl7-description [message]="parsedMessage"></lib-hl7-description>
+  </div>
+  <div class="tree-view">
+    <lib-hl7-tree [message]="parsedMessage"></lib-hl7-tree>
+  </div>
+</div>

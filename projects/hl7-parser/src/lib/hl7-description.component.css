@@ -1,0 +1,84 @@
+.description-container {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+}
+
+.tab-button.active {
+  background-color: #fff;
+  border-bottom: 1px solid transparent;
+}
+
+.tab-content {
+  padding: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-left: 3px solid #eee;
+  border-radius: 3px;
+}
+
+li.selected {
+  background-color: #c5e1a5; /* Standardized light green */
+  border-left-color: #8bc34a;
+}
+
+.repetition-group.selected {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+p {
+  margin: 5px 0 0 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.mapped-object {
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+}
+
+.mapped-object h4 {
+  text-transform: uppercase;
+  background-color: #f8f9fa;
+  padding: .75rem 1.25rem;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.mapped-object ul {
+  padding: 1.25rem;
+}
+
+.mapped-object li {
+  border: none;
+  padding: .25rem 0;
+}
+
+.nested-list {
+  margin-top: 5px;
+  padding-left: 15px;
+  border-left: 2px solid #f0f0f0;
+}

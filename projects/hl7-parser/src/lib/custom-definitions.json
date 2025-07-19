@@ -1,0 +1,120 @@
+{
+  "2.3": {
+    "segments": {
+      "PID": {
+        "fields": {
+          "3": {
+            "desc": "Patient Identifier List",
+            "dt": "CX",
+            "comp": [
+              { "desc": "ID Number" },
+              { "desc": "Check Digit" },
+              { "desc": "Check Digit Scheme" },
+              { "desc": "Assigning Authority" },
+              { "desc": "Identifier Type Code" },
+              { "desc": "Assigning Facility" }
+            ]
+          },
+          "5": {
+            "desc": "Patient Name",
+            "dt": "XPN",
+            "comp": [
+              { "desc": "Family Name" },
+              { "desc": "Given Name" },
+              { "desc": "Second and Further Given Names or Initials Thereof" },
+              { "desc": "Suffix (e.g., JR or III)" },
+              { "desc": "Prefix (e.g., DR)" },
+              { "desc": "Degree (e.g., MD)" }
+            ]
+          },
+          "11": {
+            "desc": "Patient Address",
+            "dt": "XAD",
+            "comp": [
+              { "desc": "Street Address" },
+              { "desc": "Other Designation" },
+              { "desc": "City" },
+              { "desc": "State or Province" },
+              { "desc": "Zip or Postal Code" },
+              { "desc": "Country" },
+              { "desc": "Address Type" }
+            ]
+          }
+        }
+      },
+      "PV1": {
+        "fields": {
+          "3": {
+            "desc": "Assigned Patient Location",
+            "dt": "PL",
+            "comp": [
+              { "desc": "Point of Care" },
+              { "desc": "Room" },
+              { "desc": "Bed" },
+              { "desc": "Facility" }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "2.5": {
+    "segments": {
+      "PID": {
+        "fields": {
+          "3": {
+            "desc": "Patient Identifier List",
+            "dt": "CX",
+            "comp": [
+              { "desc": "ID Number" },
+              { "desc": "Check Digit" },
+              { "desc": "Check Digit Scheme" },
+              { "desc": "Assigning Authority" },
+              { "desc": "Identifier Type Code" },
+              { "desc": "Assigning Facility" }
+            ]
+          },
+          "5": {
+            "desc": "Patient Name",
+            "dt": "XPN",
+            "comp": [
+              { "desc": "Family Name" },
+              { "desc": "Given Name" },
+              { "desc": "Second and Further Given Names or Initials Thereof" },
+              { "desc": "Suffix (e.g., JR or III)" },
+              { "desc": "Prefix (e.g., DR)" },
+              { "desc": "Degree (e.g., MD)" }
+            ]
+          },
+          "11": {
+            "desc": "Patient Address",
+            "dt": "XAD",
+            "comp": [
+              { "desc": "Street Address" },
+              { "desc": "Other Designation" },
+              { "desc": "City" },
+              { "desc": "State or Province" },
+              { "desc": "Zip or Postal Code" },
+              { "desc": "Country" },
+              { "desc": "Address Type" }
+            ]
+          }
+        }
+      },
+      "PV1": {
+        "fields": {
+          "3": {
+            "desc": "Assigned Patient Location",
+            "dt": "PL",
+            "comp": [
+              { "desc": "Point of Care" },
+              { "desc": "Room" },
+              { "desc": "Bed" },
+              { "desc": "Facility" }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

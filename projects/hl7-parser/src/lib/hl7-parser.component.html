@@ -1,0 +1,39 @@
+<div class="hl7-container">
+  <div *ngFor="let segment of message?.segments; let i = index"
+       class="segment"
+       [class.selected]="selectedSegment === i && selectedField === null"
+       (click)="selectSegment(i)"
+       [id]="'s-' + i">
+    <span class="segment-name">{{ segment.name }}</span>
+    <span class="separator">|</span>
+    <span *ngFor="let field of segment.fields.slice(1); let j = index"
+          class="field"
+          [class.selected]="selectedField === (j + 1) && selectedSegment === i && selectedRepetition === null"
+          (click)="selectField(i, j, $event)"
+          [id]="'s-' + i + '-f-' + (j + 1)">
+      <span *ngFor="let repetition of field.repetitions; let k = index"
+            class="repetition"
+            [class.selected]="selectedRepetition === k && selectedField === (j + 1) && selectedSegment === i && selectedComponent === null"
+            (click)="selectRepetition(i, j, k, $event)"
+            [id]="'s-' + i + '-f-' + (j + 1) + '-r-' + k">
+        <span *ngFor="let component of repetition.components; let l = index"
+              class="component"
+              [class.selected]="selectedComponent === l && selectedRepetition === k && selectedField === (j + 1) && selectedSegment === i && selectedSubComponent === null"
+              (click)="selectComponent(i, j, k, l, $event)"
+              [id]="'s-' + i + '-f-' + (j + 1) + '-r-' + k + '-c-' + l">
+          <span *ngFor="let subComponent of component.subComponents; let m = index"
+                class="sub-component"
+                [class.selected]="selectedSubComponent === m && selectedComponent === l && selectedRepetition === k && selectedField === (j + 1) && selectedSegment === i"
+                (click)="selectSubComponent(i, j, k, l, m, $event)"
+                [id]="'s-' + i + '-f-' + (j + 1) + '-r-' + k + '-c-' + l + '-sc-' + m">
+            {{ subComponent.original }}
+            <span *ngIf="m < component.subComponents.length - 1" class="separator">&</span>
+          </span>
+          <span *ngIf="l < repetition.components.length - 1" class="separator">^</span>
+        </span>
+        <span *ngIf="k < field.repetitions.length - 1" class="separator">~</span>
+      </span>
+      <span *ngIf="j < segment.fields.slice(1).length - 1" class="separator">|</span>
+    </span>
+  </div>
+</div>

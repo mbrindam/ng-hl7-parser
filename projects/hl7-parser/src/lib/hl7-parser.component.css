@@ -1,0 +1,55 @@
+.hl7-container {
+  font-family: monospace;
+  border: 1px solid #ccc;
+  padding: 10px;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.segment {
+  padding: 1px;
+  margin-bottom: 1px;
+  border-radius: 3px;
+}
+
+.segment:hover {
+  background-color: #f0f0f0;
+}
+
+.segment.selected,
+.field.selected,
+.repetition.selected,
+.component.selected,
+.sub-component.selected {
+  background-color: #c5e1a5; /* Standardized light green */
+  color: #000;
+}
+
+.segment-name {
+  font-weight: bold;
+}
+
+.field, .repetition, .component, .sub-component {
+  cursor: pointer;
+  padding: 1px 2px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.field:hover, .repetition:hover, .component:hover, .sub-component:hover {
+  background-color: #e9e9e9;
+}
+
+.segment.selected:hover,
+.field.selected:hover,
+.repetition.selected:hover,
+.component.selected:hover,
+.sub-component.selected:hover {
+  background-color: #c5e1a5; /* Ensure hover doesn't override selection */
+}
+
+.separator {
+  color: #aaa;
+  margin: 0 1px;
+}
