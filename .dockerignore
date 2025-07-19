@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+dist
+node_modules
+npm-debug.log
+yarn-error.log
+.angular/cache
+.DS_Store
+Thumbs.db
