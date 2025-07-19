@@ -3,6 +3,7 @@ FROM node:18 AS build
 WORKDIR /app
 COPY . .
 RUN npm install
+RUN ./node_modules/.bin/ng build hl7-parser --configuration production
 RUN ./node_modules/.bin/ng build sample-app --configuration production
 
 # Stage 2: Serve the application with Nginx

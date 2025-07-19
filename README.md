@@ -210,3 +210,37 @@ export class YourComponent {
   }
 }
 ```
+
+## Running with Docker
+
+You can also run the sample application using the pre-built Docker image available on Docker Hub.
+
+### Using `docker run`
+
+1.  **Pull the image:**
+    ```bash
+    docker pull mbrindam/ng-hl7-parser-app:latest
+    ```
+2.  **Run the container:**
+    ```bash
+    docker run -d -p 8080:80 --name hl7-parser-app mbrindam/ng-hl7-parser-app:latest
+    ```
+3.  Open your browser to `http://localhost:8080/`.
+
+### Using `docker-compose`
+
+1.  **Create a `docker-compose.yml` file:**
+    ```yaml
+    version: '3.8'
+    services:
+      hl7-parser-app:
+        image: mbrindam/ng-hl7-parser-app:latest
+        ports:
+          - "8080:80"
+        container_name: hl7-parser-app
+    ```
+2.  **Run the container:**
+    ```bash
+    docker-compose up -d
+    ```
+3.  Open your browser to `http://localhost:8080/`.

@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  hl7-parser-app:
+    image: mbrindam/ng-hl7-parser-app:latest
+    ports:
+      - "8080:80"
+    container_name: hl7-parser-app
