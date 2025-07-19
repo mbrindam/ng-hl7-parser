@@ -10,6 +10,16 @@ This project contains a reusable Angular component for displaying and interactin
 *   **Data Formatting:** Automatically formats common data types like dates, timestamps, and phone numbers for improved readability.
 *   **Dynamic Message Loading:** The sample application includes functionality to load new HL7 messages from a text area or from previously saved examples in local storage.
 
+## Using the Library from NPM
+
+This library is published on NPM as `ng-hl7-parser`. To use it in your own Angular project:
+
+1.  **Install the library:**
+    ```bash
+    npm install ng-hl7-parser
+    ```
+2.  **Import and use the components:** Follow the usage instructions in the library's README file: [projects/hl7-parser/README.md](projects/hl7-parser/README.md)
+
 ## Getting Started
 
 ### Prerequisites
