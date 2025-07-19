@@ -1,6 +1,6 @@
 {
-  "name": "hl7-parser",
-  "version": "0.0.1",
+  "name": "ng-hl7-parser",
+  "version": "1.0.0",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^18.2.0",

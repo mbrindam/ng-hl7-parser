@@ -1,24 +1,66 @@
-# Hl7Parser
+# Angular HL7 Parser
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+An Angular library for parsing, viewing, and interacting with HL7 (Health Level Seven) messages. This library provides components for displaying HL7 messages in a structured, easy-to-read format, including a raw parser view, a hierarchical tree view, and a detailed description view.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name --project hl7-parser` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project hl7-parser`.
-> Note: Don't forget to add `--project hl7-parser` or else it will be added to the default project in your `angular.json` file. 
+*   **HL7 Message Parsing:** Parses raw HL7 v2.x messages into a structured TypeScript object.
+*   **Interactive Parser View:** Displays the raw message with color-coded segments, fields, components, and sub-components.
+*   **Hierarchical Tree View:** Shows the message structure in an expandable tree.
+*   **Bi-directional Selection:** Clicking an element in the parser view selects it in the tree, and vice-versa.
+*   **Detailed Descriptions:** Displays definitions for selected segments and fields based on the HL7 standard.
+*   **Customizable:** The library is built with Angular and can be easily integrated into any Angular application.
 
-## Build
+## Installation
+
+To install the library, run the following command:
+
+```bash
+npm install ng-hl7-parser
+```
+
+## Usage
+
+1.  **Import the components:** In your Angular module, import the necessary components from the library.
+
+    ```typescript
+    import { Hl7ParserComponent, Hl7TreeComponent, Hl7DescriptionComponent } from 'ng-hl7-parser';
+
+    @NgModule({
+      declarations: [
+        // ... your components
+      ],
+      imports: [
+        // ... your modules
+        Hl7ParserComponent,
+        Hl7TreeComponent,
+        Hl7DescriptionComponent
+      ],
+      // ...
+    })
+    export class YourModule { }
+    ```
+
+2.  **Use the components in your template:**
+
+    ```html
+    <div class="container">
+      <lib-hl7-parser [messageStr]="yourHl7MessageString"></lib-hl7-parser>
+      <lib-hl7-tree [message]="parsedMessageObject"></lib-hl7-tree>
+      <lib-hl7-description [message]="parsedMessageObject"></lib-hl7-description>
+    </div>
+    ```
+
+    You will need to parse the raw HL7 message string into a `Hl7Message` object to pass to the tree and description components. You can use the `Hl7ParserService` for this.
+
+## Development
+
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli).
+
+### Build
 
 Run `ng build hl7-parser` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
+### Running unit tests
 
-After building your library with `ng build hl7-parser`, go to the dist folder `cd dist/hl7-parser` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test hl7-parser` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Run `ng test hl7-parser` to execute the unit tests.
