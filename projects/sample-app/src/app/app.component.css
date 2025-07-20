@@ -54,3 +54,14 @@
   margin-bottom: 20px;
   border-radius: 5px;
 }
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-icon {
+  width: 160px;
+  height: 160px;
+}
